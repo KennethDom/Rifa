@@ -72,44 +72,123 @@
       <span class="triangle-icon">▼</span>
     </p>
   </section>
-
-  <section class="search-section">
-    <div class="search-item">
-      <input type="text" class="search-input" placeholder="Buscar número..." id="searchNumber">
-    </div>
-    <div class="search-item">
-      <button class="search-btn" onclick="openModal()">Ruleta Aleatoria</button>
-    </div>
-  </section>
-  
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <h2>Boletos a Generar</h2>
-      <select id="ticketCount" class="ticket-dropdown" onchange="updateGenerateButtonText()">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
-      <button id="generateBtn" class="generate-btn" onclick="generateTicket()">Haz clic aquí para generar 1 boleto</button>
-      <div id="generatedTickets"></div> 
-      <button class="select-btn" id="selectTicketsBtn" style="display: none; margin-top: 1rem;">Seleccionar boletos</button>
-      <button class="close-btn" onclick="closeModal()">Cerrar</button>
-    </div>
-  </div>
   <div class="ticket-legend">
     <button class="legend-btn" disabled></button>
     <span class="legend-text">= No Disponible</span>
   </div>
-  <div class="ticket-buttons" id="ticketContainer">
-    <!-- Aquí se genenan los 100 botones -->
-  </div>
+  <div class="main-container">
+    <!-- Se hizo de esta forma para poder tener ids separados y poder administrarlos mejor(se que no es la mejor forma) -->
+    <div class="ticket-grid">
+      <button class="ticket-btn" id="ticket-0">00</button>
+      <button class="ticket-btn" id="ticket-1">01</button>
+      <button class="ticket-btn" id="ticket-2">02</button>
+      <button class="ticket-btn" id="ticket-3">03</button>
+      <button class="ticket-btn" id="ticket-4">04</button>
+      <button class="ticket-btn" id="ticket-5">05</button>
+      <button class="ticket-btn" id="ticket-6">06</button>
+      <button class="ticket-btn" id="ticket-7">07</button>
+      <button class="ticket-btn" id="ticket-8">08</button>
+      <button class="ticket-btn" id="ticket-9">09</button>
+      <button class="ticket-btn" id="ticket-10">10</button>
+      <button class="ticket-btn" id="ticket-11">11</button>
+      <button class="ticket-btn" id="ticket-12">12</button>
+      <button class="ticket-btn" id="ticket-13">13</button>
+      <button class="ticket-btn" id="ticket-14">14</button>
+      <button class="ticket-btn" id="ticket-15">15</button>
+      <button class="ticket-btn" id="ticket-16">16</button>
+      <button class="ticket-btn" id="ticket-17">17</button>
+      <button class="ticket-btn" id="ticket-18">18</button>
+      <button class="ticket-btn" id="ticket-19">19</button>
+    
+      <button class="ticket-btn" id="ticket-20">20</button>
+      <button class="ticket-btn" id="ticket-21">21</button>
+      <button class="ticket-btn" id="ticket-22">22</button>
+      <button class="ticket-btn" id="ticket-23">23</button>
+      <button class="ticket-btn" id="ticket-24">24</button>
+      <button class="ticket-btn" id="ticket-25">25</button>
+      <button class="ticket-btn" id="ticket-26">26</button>
+      <button class="ticket-btn" id="ticket-27">27</button>
+      <button class="ticket-btn" id="ticket-28">28</button>
+      <button class="ticket-btn" id="ticket-29">29</button>
+      <button class="ticket-btn" id="ticket-30">30</button>
+      <button class="ticket-btn" id="ticket-31">31</button>
+      <button class="ticket-btn" id="ticket-32">32</button>
+      <button class="ticket-btn" id="ticket-33">33</button>
+      <button class="ticket-btn" id="ticket-34">34</button>
+      <button class="ticket-btn" id="ticket-35">35</button>
+      <button class="ticket-btn" id="ticket-36">36</button>
+      <button class="ticket-btn" id="ticket-37">37</button>
+      <button class="ticket-btn" id="ticket-38">38</button>
+      <button class="ticket-btn" id="ticket-39">39</button>
+    
+      <button class="ticket-btn" id="ticket-40">40</button>
+      <button class="ticket-btn" id="ticket-41">41</button>
+      <button class="ticket-btn" id="ticket-42">42</button>
+      <button class="ticket-btn" id="ticket-43">43</button>
+      <button class="ticket-btn" id="ticket-44">44</button>
+      <button class="ticket-btn" id="ticket-45">45</button>
+      <button class="ticket-btn" id="ticket-46">46</button>
+      <button class="ticket-btn" id="ticket-47">47</button>
+      <button class="ticket-btn" id="ticket-48">48</button>
+      <button class="ticket-btn" id="ticket-49">49</button>
+      <button class="ticket-btn" id="ticket-50">50</button>
+      <button class="ticket-btn" id="ticket-51">51</button>
+      <button class="ticket-btn" id="ticket-52">52</button>
+      <button class="ticket-btn" id="ticket-53">53</button>
+      <button class="ticket-btn" id="ticket-54">54</button>
+      <button class="ticket-btn" id="ticket-55">55</button>
+      <button class="ticket-btn" id="ticket-56">56</button>
+      <button class="ticket-btn" id="ticket-57">57</button>
+      <button class="ticket-btn" id="ticket-58">58</button>
+      <button class="ticket-btn" id="ticket-59">59</button>
+    
+      <button class="ticket-btn" id="ticket-60">60</button>
+      <button class="ticket-btn" id="ticket-61">61</button>
+      <button class="ticket-btn" id="ticket-62">62</button>
+      <button class="ticket-btn" id="ticket-63">63</button>
+      <button class="ticket-btn" id="ticket-64">64</button>
+      <button class="ticket-btn" id="ticket-65">65</button>
+      <button class="ticket-btn" id="ticket-66">66</button>
+      <button class="ticket-btn" id="ticket-67">67</button>
+      <button class="ticket-btn" id="ticket-68">68</button>
+      <button class="ticket-btn" id="ticket-69">69</button>
+      <button class="ticket-btn" id="ticket-70">70</button>
+      <button class="ticket-btn" id="ticket-71">71</button>
+      <button class="ticket-btn" id="ticket-72">72</button>
+      <button class="ticket-btn" id="ticket-73">73</button>
+      <button class="ticket-btn" id="ticket-74">74</button>
+      <button class="ticket-btn" id="ticket-75">75</button>
+      <button class="ticket-btn" id="ticket-76">76</button>
+      <button class="ticket-btn" id="ticket-77">77</button>
+      <button class="ticket-btn" id="ticket-78">78</button>
+      <button class="ticket-btn" id="ticket-79">79</button>
+    
+      <button class="ticket-btn" id="ticket-80">80</button>
+      <button class="ticket-btn" id="ticket-81">81</button>
+      <button class="ticket-btn" id="ticket-82">82</button>
+      <button class="ticket-btn" id="ticket-83">83</button>
+      <button class="ticket-btn" id="ticket-84">84</button>
+      <button class="ticket-btn" id="ticket-85">85</button>
+      <button class="ticket-btn" id="ticket-86">86</button>
+      <button class="ticket-btn" id="ticket-87">87</button>
+      <button class="ticket-btn" id="ticket-88">88</button>
+      <button class="ticket-btn" id="ticket-89">89</button>
+      <button class="ticket-btn" id="ticket-90">90</button>
+      <button class="ticket-btn" id="ticket-91">91</button>
+      <button class="ticket-btn" id="ticket-92">92</button>
+      <button class="ticket-btn" id="ticket-93">93</button>
+      <button class="ticket-btn" id="ticket-94">94</button>
+      <button class="ticket-btn" id="ticket-95">95</button>
+      <button class="ticket-btn" id="ticket-96">96</button>
+      <button class="ticket-btn" id="ticket-97">97</button>
+      <button class="ticket-btn" id="ticket-98">98</button>
+      <button class="ticket-btn" id="ticket-99">99</button>
+    </div>    
+    <div class="selected-tickets">
+      <h3>Boletos Seleccionados</h3>
+      <ul></ul>
+    </div>
+  </div>  
   
   <script src="../js/function-raffle-all.js"></script>
 </body>
