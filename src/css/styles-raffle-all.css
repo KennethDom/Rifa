@@ -301,10 +301,10 @@ nav a:hover {
 
 .ticket-grid {
   display: grid;
-  grid-template-columns: repeat(20, 1fr); /* 20 columnas */
-  grid-template-rows: repeat(5, auto); /* 5 filas */
-  gap: 10px; /* Espaciado entre los botones */
-  margin: 20px; /* Márgenes alrededor de la cuadrícula */
+  grid-template-columns: repeat(20, 1fr); 
+  grid-template-rows: repeat(5, auto); 
+  gap: 10px; 
+  margin: 20px; 
 }
 .ticket-btn {
   width: 100%;
@@ -328,13 +328,13 @@ nav a:hover {
 }
 
 .ticket-grid button.available {
-  cursor: pointer; /* Aseguramos que el cursor se vea como si puede hacer clic */
+  cursor: pointer; 
 }
 
 .ticket-grid button.unavailable {
-  background-color: #000000; /* Color rojo para no disponible */
-  pointer-events: none; /* Deshabilita la interacción con el botón */
-  cursor: not-allowed; /* Cambia el cursor para indicar que no se puede hacer clic */
+  background-color: #000000; 
+  pointer-events: none; 
+  cursor: not-allowed; 
 }
 
 .selected-tickets {
@@ -346,4 +346,58 @@ nav a:hover {
 
 .selected-tickets h3 {
   margin-top: 0;
+}
+.selected-tickets ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-tickets li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.selected-tickets li:hover {
+  background-color: #e9e9e9;
+}
+
+.selected-tickets li button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.selected-tickets li button:hover {
+  background-color: #c82333;
+}
+
+.confirm-btn {
+  display: none;
+  padding: 10px 60px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background-color: #45a049;
 }

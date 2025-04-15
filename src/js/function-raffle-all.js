@@ -154,5 +154,43 @@ function updateTicketStatus() {
     }
   });
 }
-
 updateTicketStatus();
+
+
+const selectedList = document.querySelector('.selected-tickets ul');
+
+buttons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const ticket = tickets[index];
+
+    if (ticket.available) {
+      ticket.available = false;  
+      const listItem = document.createElement('li');
+      listItem.textContent = `Boleto: ${ticket.id} `;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'X';
+      removeBtn.style.marginLeft = '10px';
+      removeBtn.addEventListener('click', () => {
+        selectedList.removeChild(listItem);
+        ticket.available = true;
+
+        if (selectedList.children.length === 0) {
+          document.getElementById('confirm-btn').style.display = 'none';
+        }
+      
+      });
+
+      listItem.appendChild(removeBtn);
+      selectedList.appendChild(listItem);
+      
+      if (selectedList.children.length > 0) {
+        mostrarConfirmar();  
+      }
+    }
+  });
+});
+
+function mostrarConfirmar() {
+  document.getElementById('confirm-btn').style.display = 'inline-block';
+}
