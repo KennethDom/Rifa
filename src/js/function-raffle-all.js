@@ -194,3 +194,18 @@ buttons.forEach((button, index) => {
 function mostrarConfirmar() {
   document.getElementById('confirm-btn').style.display = 'inline-block';
 }
+
+document.getElementById('confirm-btn').addEventListener('click', () => {
+  const listItems = document.querySelectorAll('.selected-tickets ul li');
+  const selectedNumbers = Array.from(listItems).map(item => {
+    return item.textContent.replace('Boleto: ', '').replace('X', '').trim();
+  });
+
+  if (selectedNumbers.length > 0) {
+    const message = encodeURIComponent(`¡Hola! Estos son los boletos que quiero para la rifa de 5,000mx: ${selectedNumbers.join(', ')}`);
+    const whatsappURL = `https://wa.me/?text=${message}`;
+    window.open(whatsappURL, '_blank');
+  } else {
+    alert('¡No has seleccionado boletos!');
+  }
+});
