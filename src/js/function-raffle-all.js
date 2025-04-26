@@ -35,9 +35,7 @@ function closeModal() {
   document.getElementById('modal').style.display = 'none';
 };
 
-const buttons = document.querySelectorAll('.ticket-grid button');
-
-// Se hizo de esta forma para poder tener ids separados y poder administrarlos mejor(se que no es la mejor forma) -->
+// Se hizo de esta forma para poder tener ids separados y poder administrarlos mejor(se que no es la mejor forma)
 // Si queremos desactivar los botones nadamas cambiemos el estado de "true" a "false"
 const tickets = [
   { id: 0, available: true },
@@ -142,6 +140,8 @@ const tickets = [
   { id: 99, available: true },
 ];
 
+const buttons = document.querySelectorAll('.ticket-grid button');
+
 function updateTicketStatus() {
   buttons.forEach((button, index) => {
     const ticket = tickets[index];
@@ -156,14 +156,25 @@ function updateTicketStatus() {
 }
 updateTicketStatus();
 
-
 const selectedList = document.querySelector('.selected-tickets ul');
+
+const totalPagar = document.createElement('p');
+totalPagar.id = 'total-pagar';
+totalPagar.style.marginTop = '10px';
+totalPagar.style.fontWeight = 'bold';
+totalPagar.textContent = 'Total a pagar: $0 MXN';
+document.querySelector('.selected-tickets').appendChild(totalPagar);
 
 buttons.forEach((button, index) => {
   button.addEventListener('click', () => {
     const ticket = tickets[index];
 
     if (ticket.available) {
+      if (selectedList.children.length >= 10) {
+        alert('Solo puedes seleccionar un máximo de 10 boletos.');
+        return;
+      }
+
       ticket.available = false;  
       const listItem = document.createElement('li');
       listItem.textContent = `Boleto: ${ticket.id} `;
@@ -174,16 +185,17 @@ buttons.forEach((button, index) => {
       removeBtn.addEventListener('click', () => {
         selectedList.removeChild(listItem);
         ticket.available = true;
+        actualizarTotal();
 
         if (selectedList.children.length === 0) {
           document.getElementById('confirm-btn').style.display = 'none';
         }
-      
       });
 
       listItem.appendChild(removeBtn);
       selectedList.appendChild(listItem);
-      
+      actualizarTotal();
+
       if (selectedList.children.length > 0) {
         mostrarConfirmar();  
       }
@@ -195,15 +207,31 @@ function mostrarConfirmar() {
   document.getElementById('confirm-btn').style.display = 'inline-block';
 }
 
+function actualizarTotal() {
+  const cantidadBoletos = selectedList.children.length;
+  const total = cantidadBoletos * 70;
+  document.getElementById('total-pagar').textContent = `Total a pagar: $${total} MXN`;
+}
+
+const telefonoWhatsApp = '+52123456789'; 
+
 document.getElementById('confirm-btn').addEventListener('click', () => {
   const listItems = document.querySelectorAll('.selected-tickets ul li');
   const selectedNumbers = Array.from(listItems).map(item => {
     return item.textContent.replace('Boleto: ', '').replace('X', '').trim();
   });
 
-  if (selectedNumbers.length > 0) {
-    const message = encodeURIComponent(`¡Hola! Estos son los boletos que quiero para la rifa de 5,000mx: ${selectedNumbers.join(', ')}`);
-    const whatsappURL = `https://wa.me/?text=${message}`;
+  const cantidadBoletos = selectedNumbers.length;
+  const total = cantidadBoletos * 70;
+
+  if (cantidadBoletos > 0) {
+    const message = encodeURIComponent(
+      `¡Hola! Estos son los boletos que quiero para la rifa de 5,000mx:\n\n` +
+      `Boletos: ${selectedNumbers.join(', ')}\n` +
+      `Seria un total de: $${total} MXN \n`+
+      ` Estoy listo para ganar `
+    );
+    const whatsappURL = `https://wa.me/${telefonoWhatsApp}?text=${message}`;
     window.open(whatsappURL, '_blank');
   } else {
     alert('¡No has seleccionado boletos!');
